@@ -35,8 +35,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainAdapterVie
         public MainAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             this.ivThumbnail = itemView.findViewById(R.id.ivThumbnail);
-//            this.tvTitle = itemView.findViewById(R.id.tvTitlte);
-//            this.tvSummary = itemView.findViewById(R.id.tvSummary);
+            this.tvTitle = itemView.findViewById(R.id.tvTitle);
+            this.tvSummary = itemView.findViewById(R.id.tvSummary);
         }
     }
 
@@ -59,6 +59,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainAdapterVie
         Glide.with(holder.itemView.getContext())
                 .load(thumbnailPath)
                 .into(holder.ivThumbnail);
+
+        holder.tvTitle.setText(movie.getTitle());
+        holder.tvSummary.setText(movie.getSummary());
     }
 
     // 4. getItemCount
