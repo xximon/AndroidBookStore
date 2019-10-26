@@ -9,5 +9,6 @@ public class MainPresenter extends BasePresenterImpl<MainContract.View>
     public void fetchMoives(int pageNum) {
         //TODO Repoisitory에 데이터를 가져오도록 명령.
         // TODO RxJava 로 View로 업스트림을 올리게 됨.
+
     }
 }
