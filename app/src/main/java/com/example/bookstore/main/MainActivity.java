@@ -1,6 +1,7 @@
 package com.example.bookstore.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,8 @@ public class MainActivity extends BaseActivity<MainContract.View, MainContract.P
     @BindView(R.id.btnFetchMovies)
     Button btnFetchMovies;
 
+    private RecyclerView mRecyclerView;
+
     @Override
     protected MainContract.Presenter setPresenter() {
         return new MainPresenter();
@@ -37,6 +40,10 @@ public class MainActivity extends BaseActivity<MainContract.View, MainContract.P
                 mPresenter.fetchMoives(1);
             }
         });
+    }
+
+    private void initRecyclerView(){
+
     }
 
     @Override
