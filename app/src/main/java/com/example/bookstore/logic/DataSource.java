@@ -9,5 +9,5 @@ import io.reactivex.Single;
 public interface DataSource {
     void setRepository(Repository repository);
 
-    Single<List<Movie>> fetchMovies();
+    Single<List<Movie>> fetchMovies(int pageNum);
 }
