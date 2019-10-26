@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.bookstore.R;
 import com.example.bookstore.model.Movie;
 
@@ -18,9 +19,11 @@ import java.util.List;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainAdapterViewHolder> {
 
     List<Movie> movies;
+    MainContract.Presenter presenter;
 
-    public MainAdapter(List<Movie> movies) {
+    public MainAdapter(List<Movie> movies, MainContract.Presenter presenter) {
         this.movies = movies;
+        this.presenter = presenter;
     }
 
     //  1. ViewHolder
@@ -52,13 +55,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainAdapterVie
         Movie movie = movies.get(position);
         String thumbnailPath = movie.getSmallCoverImage();
         Log.d("adapter", thumbnailPath);
-    }
-    // 4. getItemCount
 
+        Glide.with(holder.itemView.getContext())
+                .load(thumbnailPath)
+                .into(holder.ivThumbnail);
+    }
+
+    // 4. getItemCount
     @Override
     public int getItemCount() {
         return movies.size();
     }
-
-
 }
