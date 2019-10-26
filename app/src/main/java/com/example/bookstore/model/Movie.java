@@ -47,6 +47,11 @@ public class Movie {
     @NonNull
     @Override
     public String toString() {
-        return super.toString();
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                ", smallCoverImage='" + smallCoverImage + '\'' +
+                '}';
     }
 }
